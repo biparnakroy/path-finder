@@ -1,8 +1,8 @@
 //black track over white surface
-int leftMotor=13;
-int righMotor=12;
-int rightEye=3;
-int leftEye=4;
+int leftMotor=11;
+int rightMotor=13;
+ int rightEye=3;
+ int leftEye=6;
 void setup(){
  pinMode(leftMotor,OUTPUT);
  pinMode(rightMotor,OUTPUT);
@@ -11,27 +11,27 @@ void setup(){
 } 
 void loop(){
  //forward
- if( digitalRead(rightEye)== HIGH && digitalRead(leftEye)==HIGH)
+ if( digitalRead(rightEye)== LOW && digitalRead(leftEye)==LOW)
   { 
      digitalWrite(rightMotor, HIGH);
      digitalWrite(leftMotor, HIGH);
   }
 //right
- if( digitalRead(rightEye)== LOW && digitalRead(leftEye)==HIGH)
+ else if( digitalRead(rightEye)== HIGH && digitalRead(leftEye)==LOW)
   { 
      digitalWrite(rightMotor, LOW);
      digitalWrite(leftMotor, HIGH);
    }
 //left 
- if( digitalRead(rightEye)== HIGH && digitalRead(leftEye)==LOW)
+else if( digitalRead(rightEye)== LOW && digitalRead(leftEye)==HIGH)
   { 
      digitalWrite(rightMotor, HIGH);
      digitalWrite(leftMotor, LOW);
    }
 //stop
- if( digitalRead(rightEye)== LOW && digitalRead(leftEye)==LOW)
-  { 
+else {
      digitalWrite(rightMotor, LOW);
-     digitalWrite(leftMotor, LOW);
+     digitalWrite(leftMotor,  LOW);
    }
+
 }
